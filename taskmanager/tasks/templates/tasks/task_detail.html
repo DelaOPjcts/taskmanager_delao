@@ -1,0 +1,6 @@
+<!-- tasks/templates/tasks/task_detail.html -->
+<h1>{{ task.title }}</h1>
+<p>{{ task.description }}</p>
+<a href="{% url 'task_update' task.pk %}">Editar</a>
+<a href="{% url 'task_delete' task.pk %}">Eliminar</a>
+<a href="{% url 'task_list' %}">Volver a la lista</a>
