@@ -1,6 +1,20 @@
 <!-- tasks/templates/tasks/task_detail.html -->
-<h1>{{ task.title }}</h1>
-<p>{{ task.description }}</p>
-<a href="{% url 'task_update' task.pk %}">Editar</a>
-<a href="{% url 'task_delete' task.pk %}">Eliminar</a>
-<a href="{% url 'task_list' %}">Volver a la lista</a>
+{% extends 'base.html' %}
+
+{% block title %}Create/Update Task{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-sm" style="border-color: #3D5A80;">
+        <div class="card-body">
+            <h1 class="card-title" style="color: #3D5A80;">{{ task.title }}</h1>
+            <p class="card-text">{{ task.description }}</p>
+            <div class="mt-4">
+                <a href="{% url 'task_update' task.pk %}" class="btn btn-outline-warning me-2">Edit</a>
+                <a href="{% url 'task_delete' task.pk %}" class="btn btn-outline-danger me-2">Delete</a>
+                <a href="{% url 'task_list' %}" class="btn btn-outline-primary">Task list</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

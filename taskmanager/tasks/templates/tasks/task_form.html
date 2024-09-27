@@ -1,17 +1,35 @@
 <!-- tasks/templates/tasks/task_form.html -->
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Create/Update Task</title>
-</head>
-<body>
-    <h1>Create/Update Task</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Save</button>
-    </form>
-    <a href="{% url 'task_list' %}">Cancel</a>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Create/Update Task{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="form-container p-5 rounded" style="background-color: #f0f4f8; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <h1 class="text-center mb-4" style="color: #3D5A80;">Create/Update Task</h1>
+        
+        <form method="post" class="row g-3">
+            {% csrf_token %}
+            <div class="col-md-6">
+                <label for="{{ form.title.id_for_label }}" class="form-label" style="color: #3D5A80;">Title:</label>
+                {{ form.title }}  <!-- Se renderiza el campo title con la clase form-control ya aplicada desde forms.py -->
+            </div>
+
+            <div class="col-md-12">
+                <label for="{{ form.description.id_for_label }}" class="form-label" style="color: #3D5A80;">Description:</label>
+                {{ form.description }}  <!-- Se renderiza el campo description con la clase form-control ya aplicada desde forms.py -->
+            </div>
+
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary btn-lg" style="background-color: #3D5A80; border-color: #3D5A80;">
+                    Save
+                </button>
+                <a href="{% url 'task_list' %}" class="btn btn-secondary btn-lg ms-3" style="background-color: #EE6C4D; border-color: #EE6C4D;">
+                    Cancel
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
