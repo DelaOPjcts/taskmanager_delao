@@ -8,10 +8,11 @@ from django.contrib.auth.forms import AuthenticationForm
 class TaskForm(forms.ModelForm):
     class Meta:
         model = Task
-        fields = ['title', 'description']
+        fields = ['title', 'description', 'due_date']
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter task title'}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Enter task description', 'rows': 4}),
+            'due_date': forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
         }
 
 class UserRegistrationForm(forms.ModelForm):

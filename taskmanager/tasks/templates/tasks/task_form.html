@@ -21,6 +21,11 @@
                 {{ form.description }}  <!-- Se renderiza el campo description con la clase form-control ya aplicada desde forms.py -->
             </div>
 
+            <div class="col-md-6">
+                <label for="{{ form.due_date.id_for_label }}" class="form-label" style="color: #3D5A80;">Due Date:</label>
+                {{ form.due_date }}  <!-- Se renderiza el campo due_date -->
+            </div>
+
             <div class="text-center mt-4">
                 <button type="submit" class="btn btn-primary btn-lg" style="background-color: #3D5A80; border-color: #3D5A80;">
                     Save
